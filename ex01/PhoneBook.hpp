@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:36:09 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/12 01:27:34 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/13 01:45:47 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
+# include <sstream>
 # include "Contact.hpp"
 
 class PhoneBook
@@ -27,6 +29,11 @@ class PhoneBook
 		void addContact(void);
 		void displayContacts(void);
 		void searchContact(int index);
+		void firstNameField(Contact& contact);
+		void lastNameField(Contact& contact);
+		void nickNameField(Contact& contact);
+		void phoneNumberField(Contact& contact);
+		void darkestSecretField(Contact& contact);
 };
 
 #endif
