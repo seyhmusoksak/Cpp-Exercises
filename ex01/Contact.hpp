@@ -6,13 +6,14 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:51:25 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/12 23:47:41 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/13 11:54:19 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+# include <iostream>
 # include <string>
 
 class Contact
@@ -23,12 +24,18 @@ class Contact
 		std::string _nickName;
 		std::string _phoneNumber;
 		std::string _darkestSecret;
+
+		bool validateAlphabetic(const std::string &str) const;
+		bool validateAlphanumeric(const std::string &str) const;
+		bool validateNumeric(const std::string &str) const;
+		bool getInput(std::string &input, const std::string &prompt);
+
 	public:
-		void setFirstName(std::string firstName);
-		void setLastName(std::string lastName);
-		void setNickName(std::string nickName);
-		void setPhoneNumber(std::string phoneNumber);
-		void setDarkestSecret(std::string darkestSecret);
+		bool setFirstName(void);
+		bool setLastName(void);
+		bool setNickName(void);
+		bool setPhoneNumber(void);
+		bool setDarkestSecret(void);
 		std::string getFirstName(void) const;
 		std::string getLastName(void) const;
 		std::string getNickName(void) const;

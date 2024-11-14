@@ -6,198 +6,114 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:02:21 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/13 11:37:37 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/14 02:08:52 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook()
 {
 	this->_nbContacts = 0;
 	this->_oldIndex = 0;
 }
-
-void	PhoneBook::firstNameField(Contact& contact)
+void PhoneBook::addContact()
 {
-	std::string input;
+    Contact contact;
 
-	std::cout << "Enter first name: ";
-	std::getline(std::cin, input);
-	if (input.empty())
-	{
-		std::cout << "The field can't be empty." << std::endl;
-		firstNameField(contact);
-		return ;
-	}
-	for(size_t i; i < input.length(); i++)
-	{
-		if (!std::isalpha(input[i]))
-		{
-			std::cout << "First name must be alphabetic." << std::endl;
-			lastNameField(contact);
-			return ;
-		}
-	}
-	contact.setFirstName(input);
-}
+    if (!contact.setFirstName() ||
+        !contact.setLastName() ||
+        !contact.setNickName() ||
+        !contact.setPhoneNumber() ||
+        !contact.setDarkestSecret())
+        return;
 
-void	PhoneBook::lastNameField(Contact& contact)
-{
-	std::string input;
-
-	std::cout << "Enter last name: ";
-	std::getline(std::cin, input);
-	if (input.empty())
-	{
-		std::cout << "The field can't be empty." << std::endl;
-		lastNameField(contact);
-		return ;
-	}
-	for(size_t i; i < input.length(); i++)
-	{
-		if (!std::isalpha(input[i]))
-		{
-			std::cout << "Last name must be alphabetic." << std::endl;
-			lastNameField(contact);
-			return ;
-		}
-	}
-	contact.setLastName(input);
-}
-
-void	PhoneBook::nickNameField(Contact& contact)
-{
-	std::string input;
-
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, input);
-	if (input.empty())
-	{
-		std::cout << "The field can't be empty." << std::endl;
-		nickNameField(contact);
-		return ;
-	}
-	for(size_t i; i < input.length(); i++)
-	{
-		if (!std::isalpha(input[i]) || !std::isdigit(input[i]))
-		{
-			std::cout << "You can't use whitespace characters!" << std::endl;
-			lastNameField(contact);
-			return ;
-		}
-	}
-	contact.setNickName(input);
-}
-
-
-void	PhoneBook::phoneNumberField(Contact& contact)
-{
-	std::string input;
-
-	std::cout << "Enter phone number: ";
-	std::getline(std::cin, input);
-	if (input.empty())
-	{
-		std::cout << "The field can't be empty." << std::endl;
-		phoneNumberField(contact);
-		return ;
-	}
-	for (size_t i = 0; i < input.length(); i++)
-	{
-		if (!std::isdigit(input[i]))
-		{
-			std::cout << "Phone number must be digits." << std::endl;
-			phoneNumberField(contact);
-			return	;
-		}
-	}
-	contact.setPhoneNumber(input);
-}
-
-void PhoneBook::darkestSecretField(Contact& contact)
-{
-	std::string input;
-
-	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, input);
-	if (input.empty())
-	{
-		std::cout << "The field can't be empty." << std::endl;
-		darkestSecretField(contact);
-	}
-	else
-		contact.setDarkestSecret(input);
-}
-
-
-void PhoneBook::addContact(void)
-{
-	Contact contact;
-	std::string input;
-
-	firstNameField(contact);
-	lastNameField(contact);
-	nickNameField(contact);
-	phoneNumberField(contact);
-	darkestSecretField(contact);
-	if (this->_nbContacts < 8)
-	{
-		this->_contacts[this->_nbContacts] = contact;
-		this->_nbContacts++;
-	}
-	else
-	{
-		this->_contacts[_oldIndex] = contact;
+    if (this->_nbContacts < 8)
+    {
+        this->_contacts[this->_nbContacts] = contact;
+        this->_nbContacts++;
+    }
+    else
+    {
+        this->_contacts[_oldIndex] = contact;
         _oldIndex = (_oldIndex + 1) % 8;
-	}
+    }
 }
 
-void PhoneBook::displayContacts(void)
+void PhoneBook::displayContacts()
 {
-	int i = 0;
-	std::string input;
+	int i = 1;
 
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
-	while (i < this->_nbContacts)
+	while (i <= this->_nbContacts)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
-		if (this->_contacts[i].getFirstName().length() > 10)
-			std::cout << std::setw(10) << this->_contacts[i].getFirstName().substr(0, 9) + "." << "|";
+		if (this->_contacts[i - 1].getFirstName().length() > 10)
+			std::cout << std::setw(10) << this->_contacts[i - 1].getFirstName().substr(0, 9) + "." << "|";
 		else
-			std::cout << std::setw(10) << this->_contacts[i].getFirstName() << "|";
-		if (this->_contacts[i].getLastName().length() > 10)
-			std::cout << std::setw(10) << this->_contacts[i].getLastName().substr(0, 9) + "." << "|";
+			std::cout << std::setw(10) << this->_contacts[i - 1].getFirstName() << "|";
+		if (this->_contacts[i - 1].getLastName().length() > 10)
+			std::cout << std::setw(10) << this->_contacts[i - 1].getLastName().substr(0, 9) + "." << "|";
 		else
-			std::cout << std::setw(10) << this->_contacts[i].getLastName() << "|";
-		if (this->_contacts[i].getNickName().length() > 10)
-			std::cout << std::setw(10) << this->_contacts[i].getNickName().substr(0, 9) + "." << "|";
+			std::cout << std::setw(10) << this->_contacts[i - 1].getLastName() << "|";
+		if (this->_contacts[i - 1].getNickName().length() > 10)
+			std::cout << std::setw(10) << this->_contacts[i - 1].getNickName().substr(0, 9) + "." << "|";
 		else
-			std::cout << std::setw(10) << this->_contacts[i].getNickName() << "|";
+			std::cout << std::setw(10) << this->_contacts[i - 1].getNickName() << "|";
 		std::cout << std::endl << "---------------------------------------------" << std::endl;
 		i++;
 	}
-	std::cout << "Enter index: ";
-	std::getline(std::cin, input);
-	std::stringstream ss(input);
-	ss >> i;
-	searchContact(i);
 }
 
-void PhoneBook::searchContact(int index)
+int	PhoneBook::getContactIndex()
 {
-	if (index < this->_nbContacts)
+	std::string input;
+	int index;
+
+	while (1)
 	{
-		std::cout << "First name: " << this->_contacts[index].getFirstName() << std::endl;
-		std::cout << "Last name: " << this->_contacts[index].getLastName() << std::endl;
-		std::cout << "Nickname: " << this->_contacts[index].getNickName() << std::endl;
-		std::cout << "Phone number: " << this->_contacts[index].getPhoneNumber() << std::endl;
-		std::cout << "Darkest secret: " << this->_contacts[index].getDarkestSecret() << std::endl;
+		std::cout << "Enter the index of the contact: ";
+		std::getline(std::cin, input);
+		if (!input.empty())
+		{
+			if (input.length() == 1 && std::isdigit(input[0]))
+			{
+				index = input[0] - '0';
+				if (index > 0 && index <= this->_nbContacts)
+					return (index);
+				else
+					std::cout << "Invalid index" << std::endl;
+			}
+			else {
+				std::cout << "Invalid index" << std::endl;
+			}
+		}
+		else {
+			std::cout << "The field can't be empty." << std::endl;
+		}
 	}
-	else
-		std::cout << "Invalid index" << std::endl;
+
+
+}
+
+void PhoneBook::searchContact()
+{
+	int index;
+
+	if (this->_nbContacts == 0)
+	{
+		std::cout << "No contacts available." << std::endl;
+		return;
+	}
+	this->displayContacts();
+	index = this->getContactIndex();
+	std::cout << "First name: " << this->_contacts[index - 1].getFirstName() << std::endl;
+	std::cout << "Last name: " << this->_contacts[index - 1].getLastName() << std::endl;
+	std::cout << "Nickname: " << this->_contacts[index - 1].getNickName() << std::endl;
+	std::cout << "Phone number: " << this->_contacts[index - 1].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << this->_contacts[index - 1].getDarkestSecret() << std::endl;
 }
 
 

@@ -6,33 +6,136 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:59:34 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/12 01:00:41 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/13 11:54:19 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void Contact::setFirstName(std::string firstName)
+bool Contact::validateAlphabetic(const std::string &str) const
 {
-	this->_firstName = firstName;
-}
-void Contact::setLastName(std::string lastName)
-{
-	this->_lastName = lastName;
-}
-
-void Contact::setNickName(std::string nickName)
-{
-	this->_nickName = nickName;
-}
-void Contact::setPhoneNumber(std::string phoneNumber)
-{
-	this->_phoneNumber = phoneNumber;
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isalpha(str[i]))
+            return false;
+    return true;
 }
 
-void Contact::setDarkestSecret(std::string darkestSecret)
+bool Contact::validateAlphanumeric(const std::string &str) const
 {
-	this->_darkestSecret = darkestSecret;
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isalnum(str[i]))
+            return false;
+    return true;
+}
+
+bool Contact::validateNumeric(const std::string &str) const
+{
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isdigit(str[i]))
+            return false;
+    return true;
+}
+
+bool Contact::getInput(std::string &input, const std::string &prompt)
+{
+    std::cout << prompt;
+    std::getline(std::cin, input);
+    return !input.empty();
+}
+
+bool Contact::setFirstName(void)
+{
+    std::string input;
+    while (true)
+    {
+        if (!getInput(input, "Enter first name: "))
+        {
+            std::cout << "The field can't be empty." << std::endl;
+            continue;
+        }
+        if (!validateAlphabetic(input))
+        {
+            std::cout << "First name must be alphabetic." << std::endl;
+            continue;
+        }
+        _firstName = input;
+        return true;
+    }
+}
+
+bool Contact::setLastName(void)
+{
+    std::string input;
+    while (true)
+    {
+        if (!getInput(input, "Enter last name: "))
+        {
+            std::cout << "The field can't be empty." << std::endl;
+            continue;
+        }
+        if (!validateAlphabetic(input))
+        {
+            std::cout << "Last name must be alphabetic." << std::endl;
+            continue;
+        }
+        _lastName = input;
+        return true;
+    }
+}
+
+bool Contact::setNickName(void)
+{
+    std::string input;
+    while (true)
+    {
+        if (!getInput(input, "Enter nickname: "))
+        {
+            std::cout << "The field can't be empty." << std::endl;
+            continue;
+        }
+        if (!validateAlphanumeric(input))
+        {
+            std::cout << "Nickname must be alphanumeric." << std::endl;
+            continue;
+        }
+        _nickName = input;
+        return true;
+    }
+}
+
+bool Contact::setPhoneNumber(void)
+{
+    std::string input;
+    while (true)
+    {
+        if (!getInput(input, "Enter phone number: "))
+        {
+            std::cout << "The field can't be empty." << std::endl;
+            continue;
+        }
+        if (!validateNumeric(input))
+        {
+            std::cout << "Phone number must be numeric." << std::endl;
+            continue;
+        }
+        _phoneNumber = input;
+        return true;
+    }
+}
+
+bool Contact::setDarkestSecret(void)
+{
+    std::string input;
+    while (true)
+    {
+        if (!getInput(input, "Enter darkest secret: "))
+        {
+            std::cout << "The field can't be empty." << std::endl;
+            continue;
+        }
+        _darkestSecret = input;
+        return true;
+    }
 }
 
 std::string Contact::getFirstName(void) const
