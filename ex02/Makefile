@@ -1,24 +1,19 @@
-
-NAME		= account
-CC			= g++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
-
-SRCS		= Account.cpp tests.cpp
-OBJS		= $(SRCS:.cpp=.o)
+NAME = account
+SRCS = Account.cpp tests.cpp
+COMPILER = c++
+FLAGS = -std=c++98 -Wall -Wextra -Werror
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(COMPILER) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
