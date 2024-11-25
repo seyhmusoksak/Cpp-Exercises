@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:36:09 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/14 03:54:01 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/25 23:04:00 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class PhoneBook
 		int getContactIndex();
 	public:
 		PhoneBook();
-		void addContact();
-		void displayContacts();
-		void searchContact();
+		int		addContact();
+		void	displayContacts();
+		int 	searchContact();
 };
 
 #endif

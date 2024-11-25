@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:50:10 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/14 03:01:54 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/25 23:11:05 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,21 @@ int main(void)
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			break;
+		else
 		if (input == "EXIT")
 			break;
 		else if (input == "ADD")
-			phoneBook.addContact();
+		{
+			if (phoneBook.addContact() == -1)
+				break;
+		}
 		else if (input == "SEARCH")
-			phoneBook.searchContact();
+		{
+			if (phoneBook.searchContact() == -1)
+				break;
+		}
 		else
 			std::cout << "Invalid command." << std::endl;
 	}

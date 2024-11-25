@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:51:25 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/13 11:54:19 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/25 22:55:21 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Contact
 		bool validateAlphabetic(const std::string &str) const;
 		bool validateAlphanumeric(const std::string &str) const;
 		bool validateNumeric(const std::string &str) const;
-		bool getInput(std::string &input, const std::string &prompt);
+		int getInput(std::string &input, const std::string &prompt);
 
 	public:
 		bool setFirstName(void);

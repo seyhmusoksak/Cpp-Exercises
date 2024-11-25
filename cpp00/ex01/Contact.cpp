@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:59:34 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/13 11:54:19 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/25 23:06:25 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,26 @@ bool Contact::validateNumeric(const std::string &str) const
     return true;
 }
 
-bool Contact::getInput(std::string &input, const std::string &prompt)
+int Contact::getInput(std::string &input, const std::string &prompt)
 {
     std::cout << prompt;
     std::getline(std::cin, input);
-    return !input.empty();
+    if (std::cin.eof())
+        return -1;
+    return input.empty() ? 0 : 1;
 }
 
 bool Contact::setFirstName(void)
 {
     std::string input;
+    int condition;
+
     while (true)
     {
-        if (!getInput(input, "Enter first name: "))
+        condition = getInput(input, "Enter first name: ");
+        if (condition == -1)
+            return false;
+        else if (condition == 0)
         {
             std::cout << "The field can't be empty." << std::endl;
             continue;
@@ -66,9 +73,14 @@ bool Contact::setFirstName(void)
 bool Contact::setLastName(void)
 {
     std::string input;
+    int condition;
+
     while (true)
     {
-        if (!getInput(input, "Enter last name: "))
+        condition = getInput(input, "Enter last name: ");
+        if (condition == -1)
+            return false;
+        else if (condition == 0)
         {
             std::cout << "The field can't be empty." << std::endl;
             continue;
@@ -86,9 +98,13 @@ bool Contact::setLastName(void)
 bool Contact::setNickName(void)
 {
     std::string input;
+    int condition;
     while (true)
     {
-        if (!getInput(input, "Enter nickname: "))
+        condition = getInput(input, "Enter nickname: ");
+        if (condition == -1)
+            return false;
+        else if (condition == 0)
         {
             std::cout << "The field can't be empty." << std::endl;
             continue;
@@ -106,9 +122,14 @@ bool Contact::setNickName(void)
 bool Contact::setPhoneNumber(void)
 {
     std::string input;
+    int condition;
+
     while (true)
     {
-        if (!getInput(input, "Enter phone number: "))
+        condition = getInput(input, "Enter phone number: ");
+        if (condition == -1)
+            return false;
+        else if (condition == 0)
         {
             std::cout << "The field can't be empty." << std::endl;
             continue;
@@ -126,9 +147,13 @@ bool Contact::setPhoneNumber(void)
 bool Contact::setDarkestSecret(void)
 {
     std::string input;
+    int condition;
     while (true)
     {
-        if (!getInput(input, "Enter darkest secret: "))
+        condition = getInput(input, "Enter darkest secret: ");
+        if (condition == -1)
+            return false;
+        else if (condition == 0)
         {
             std::cout << "The field can't be empty." << std::endl;
             continue;
