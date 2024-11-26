@@ -6,18 +6,23 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:02:21 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/25 23:10:40 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/26 02:55:01 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook(void)
 {
 	this->_nbContacts = 0;
 	this->_oldIndex = 0;
 }
-int PhoneBook::addContact()
+
+PhoneBook::~PhoneBook(void)
+{
+	std::cout << "See you again.." << std::endl;
+}
+int PhoneBook::addContact(void)
 {
     Contact contact;
 
@@ -41,7 +46,7 @@ int PhoneBook::addContact()
 	return 0;
 }
 
-void PhoneBook::displayContacts()
+void PhoneBook::displayContacts(void)
 {
 	int i = 1;
 
@@ -68,7 +73,7 @@ void PhoneBook::displayContacts()
 	}
 }
 
-int	PhoneBook::getContactIndex()
+int	PhoneBook::getContactIndex(void)
 {
 	std::string input;
 	int index;
@@ -101,7 +106,7 @@ int	PhoneBook::getContactIndex()
 
 }
 
-int PhoneBook::searchContact()
+int PhoneBook::searchContact(void)
 {
 	int index;
 

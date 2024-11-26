@@ -6,11 +6,18 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:59:34 by soksak            #+#    #+#             */
-/*   Updated: 2024/11/25 23:06:25 by soksak           ###   ########.fr       */
+/*   Updated: 2024/11/26 02:52:32 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact(void)
+{
+}
+Contact::~Contact(void)
+{
+}
 
 bool Contact::validateAlphabetic(const std::string &str) const
 {
@@ -20,19 +27,57 @@ bool Contact::validateAlphabetic(const std::string &str) const
     return true;
 }
 
-bool Contact::validateAlphanumeric(const std::string &str) const
+bool Contact::validateNickname(const std::string &str) const
 {
-    for (size_t i = 0; i < str.length(); i++)
-        if (!std::isalnum(str[i]))
-            return false;
-    return true;
+    bool hasSpace = false;
+    bool hasContent = false;
+
+    for (size_t i = 0; i < str.length(); i++) {
+        if (std::isspace(str[i]))
+            hasSpace = true;
+        else if (std::isalnum(str[i]) || std::ispunct(str[i]))
+            hasContent = true;
+    }
+    if (hasSpace && hasContent)
+        return true;
+    else if (!hasSpace && hasContent)
+        return true;
+    else
+        return false;
+}
+
+bool Contact::validateDarkestSecret(const std::string &str) const
+{
+    bool hasSpace = false;
+    bool hasContent = false;
+
+    for (size_t i = 0; i < str.length(); i++) {
+        if (std::isspace(str[i]))
+            hasSpace = true;
+        else if (std::isalnum(str[i]) || std::ispunct(str[i]))
+            hasContent = true;
+    }
+    if (hasSpace && hasContent)
+        return true;
+    else if (!hasSpace && hasContent)
+        return true;
+    else
+        return false;
 }
 
 bool Contact::validateNumeric(const std::string &str) const
 {
+    if (str.length() > 20 || str.length() < 7)
+    {
+        std::cout << "Phone number must be between 7 and 20 digits and include country code." << std::endl;
+        return false;
+    }
     for (size_t i = 0; i < str.length(); i++)
         if (!std::isdigit(str[i]))
+        {
+            std::cout << "Phone number must be numeric." << std::endl;
             return false;
+        }
     return true;
 }
 
@@ -65,7 +110,7 @@ bool Contact::setFirstName(void)
             std::cout << "First name must be alphabetic." << std::endl;
             continue;
         }
-        _firstName = input;
+        this->_firstName = input;
         return true;
     }
 }
@@ -90,7 +135,7 @@ bool Contact::setLastName(void)
             std::cout << "Last name must be alphabetic." << std::endl;
             continue;
         }
-        _lastName = input;
+        this->_lastName = input;
         return true;
     }
 }
@@ -99,6 +144,7 @@ bool Contact::setNickName(void)
 {
     std::string input;
     int condition;
+
     while (true)
     {
         condition = getInput(input, "Enter nickname: ");
@@ -109,12 +155,12 @@ bool Contact::setNickName(void)
             std::cout << "The field can't be empty." << std::endl;
             continue;
         }
-        if (!validateAlphanumeric(input))
+        if (!validateNickname(input))
         {
-            std::cout << "Nickname must be alphanumeric." << std::endl;
+            std::cout << "Nickname must be something." << std::endl;
             continue;
         }
-        _nickName = input;
+        this->_nickName = input;
         return true;
     }
 }
@@ -135,11 +181,8 @@ bool Contact::setPhoneNumber(void)
             continue;
         }
         if (!validateNumeric(input))
-        {
-            std::cout << "Phone number must be numeric." << std::endl;
             continue;
-        }
-        _phoneNumber = input;
+        this->_phoneNumber = input;
         return true;
     }
 }
@@ -158,7 +201,12 @@ bool Contact::setDarkestSecret(void)
             std::cout << "The field can't be empty." << std::endl;
             continue;
         }
-        _darkestSecret = input;
+        if (!validateDarkestSecret(input))
+        {
+            std::cout << "Darkest secret must contain something." << std::endl;
+            continue;
+        }
+        this->_darkestSecret = input;
         return true;
     }
 }
