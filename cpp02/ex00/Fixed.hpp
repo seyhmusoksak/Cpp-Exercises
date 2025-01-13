@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 03:21:03 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/11 03:51:17 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/14 00:09:52 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 	private:
 		int			value;
-		static int	fract;
+		static const int	fract;
 	public:
 		Fixed();
 		~Fixed();

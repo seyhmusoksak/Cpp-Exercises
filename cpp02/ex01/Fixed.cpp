@@ -6,13 +6,13 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 03:21:05 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/11 22:52:25 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/14 00:11:49 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int Fixed::fract = 8;
+const int Fixed::fract = 8;
 
 Fixed::Fixed()
 {
