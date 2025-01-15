@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:17 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 05:45:01 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 06:15:31 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,29 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->name << " has no energy points left to repair!" << std::endl;
 	else
 		std::cout << "ClapTrap " << this->name << " has no hit points left to repair!" << std::endl;
+}
+
+void	ClapTrap::showStatus(std::string const &className)
+{
+	std::cout << className << " " << this->name << " has " << this->hitPts << " hit points, " << this->energyPts << " energy points." << std::endl;
+}
+
+std::string ClapTrap::getName() const
+{
+	return (this->name);
+}
+
+unsigned int ClapTrap::getHitPts() const
+{
+	return (this->hitPts);
+}
+
+unsigned int ClapTrap::getEnergyPts() const
+{
+	return (this->energyPts);
+}
+
+unsigned int ClapTrap::getAttackDamage() const
+{
+	return (this->attackDamage);
 }

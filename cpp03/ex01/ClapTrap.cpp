@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:17 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 05:46:07 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 06:15:56 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(const std::string& n): name(n), hitPts(10), energyPts(10), at
 
 ClapTrap::ClapTrap(ClapTrap& t)
 {
-	std::cout << "Claptrap Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = t;
 }
 
@@ -82,4 +82,29 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->name << " has no energy points left to repair!" << std::endl;
 	else
 		std::cout << "ClapTrap " << this->name << " has no hit points left to repair!" << std::endl;
+}
+
+void	ClapTrap::showStatus(std::string const &className)
+{
+	std::cout << className << " " << this->name << " has " << this->hitPts << " hit points, " << this->energyPts << " energy points." << std::endl;
+}
+
+std::string ClapTrap::getName() const
+{
+	return (this->name);
+}
+
+unsigned int ClapTrap::getHitPts() const
+{
+	return (this->hitPts);
+}
+
+unsigned int ClapTrap::getEnergyPts() const
+{
+	return (this->energyPts);
+}
+
+unsigned int ClapTrap::getAttackDamage() const
+{
+	return (this->attackDamage);
 }

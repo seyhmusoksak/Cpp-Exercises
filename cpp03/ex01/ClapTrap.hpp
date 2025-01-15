@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:19 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 05:12:41 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 06:15:45 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ClapTrap
 {
 	protected:
-		std::string		name;
+		std::string name;
 		unsigned int	hitPts;
 		unsigned int	energyPts;
 		unsigned int	attackDamage;
@@ -33,6 +33,11 @@ class ClapTrap
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		void showStatus(std::string const &className);
+		std::string getName() const;
+		unsigned int getHitPts() const;
+		unsigned int getEnergyPts() const;
+		unsigned int getAttackDamage() const;
 };
 
 #endif

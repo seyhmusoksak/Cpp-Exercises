@@ -1,4 +1,4 @@
-NAME = scavtrap
+NAME = ScavTrap
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 COMPILER = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror

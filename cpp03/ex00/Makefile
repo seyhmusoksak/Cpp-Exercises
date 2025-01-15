@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = ClapTrap
 SRCS = main.cpp ClapTrap.cpp
 COMPILER = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
