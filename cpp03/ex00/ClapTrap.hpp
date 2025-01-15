@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:19 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 02:52:38 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 04:05:13 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap(std::string& n);
+		ClapTrap(const std::string& n);
 		ClapTrap(ClapTrap& t);
 		ClapTrap& operator=(ClapTrap &other);
 		~ClapTrap();
