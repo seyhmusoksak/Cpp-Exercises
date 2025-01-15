@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:17 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 04:22:11 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 05:03:18 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->hitPts >= (int)amount)
+	if (this->hitPts >= amount)
 		this->hitPts -= amount;
 	else if (this->hitPts > 0)
 		this->hitPts = 0;

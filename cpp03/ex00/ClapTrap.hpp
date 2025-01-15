@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:19 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 04:05:13 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 05:02:17 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class ClapTrap
 {
 	private:
 		std::string name;
-		int	hitPts;
-		int energyPts;
-		int	attackDamage;
+		unsigned int	hitPts;
+		unsigned int	energyPts;
+		unsigned int	attackDamage;
 
 	public:
 		ClapTrap();
