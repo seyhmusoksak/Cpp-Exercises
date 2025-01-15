@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:17 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 05:42:29 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 05:45:01 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap(): name("Default"), hitPts(10), energyPts(10), attackDamage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& n): name(n), hitPts(10), energyPts(10), attackDamage(0)
 {
-	std::cout << "String constructor called" << std::endl;
+	std::cout << "ClapTrap String constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap& t)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = t;
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap &other)
 {
-	std::cout << "Copy Assignment operator called" << std::endl;
+	std::cout << "ClapTrap Copy Assignment operator called" << std::endl;
 	this->name = other.name;
 	this->hitPts = other.hitPts;
 	this->energyPts = other.energyPts;
@@ -40,7 +40,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap &other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
