@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 04:57:39 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 05:37:55 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 06:29:16 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ ScavTrap::ScavTrap(ScavTrap& t)
 ScavTrap& ScavTrap::operator=(ScavTrap &other)
 {
 	std::cout << "ScavTrap Copy Assignment operator called" << std::endl;
+	if (this == &other)
+		return *this;
 	this->name = other.name;
 	this->hitPts = other.hitPts;
 	this->energyPts = other.energyPts;
