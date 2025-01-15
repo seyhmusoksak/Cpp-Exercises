@@ -6,13 +6,13 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 04:57:39 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 08:59:26 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 06:29:16 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(): ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	this->hitPts = 100;
@@ -30,9 +30,10 @@ ScavTrap::ScavTrap(const std::string& n): ClapTrap(n)
 	this->guardMode = false;
 }
 
-ScavTrap::ScavTrap(ScavTrap& t) : ClapTrap(t)
+ScavTrap::ScavTrap(ScavTrap& t)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
+	*this = t;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap &other)
