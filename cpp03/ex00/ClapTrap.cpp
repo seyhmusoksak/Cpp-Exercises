@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:40:17 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 05:41:19 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 05:42:29 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->energyPts > 0 && this->hitPts > 0)
+	if (this->energyPts > 0 && this->hitPts > 0 && amount > 0)
 	{
 		this->energyPts -= 1;
 		this->hitPts += amount;
