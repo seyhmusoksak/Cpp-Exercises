@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 02:39:39 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 06:18:19 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/15 06:21:39 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int main()
 {
-	ScavTrap Gwen("Gwen");
-	ClapTrap Zed("Zed");
+	ScavTrap gwen("Gwen");
+	ClapTrap zed("Zed");
 
-	Gwen.showStatus("ScavTrap");
-	Zed.showStatus("ClapTrap");
+	gwen.showStatus("ScavTrap");
+	zed.showStatus("ClapTrap");
 
-	Gwen.attack(Zed.getName());
-	Zed.takeDamage(Gwen.getAttackDamage());
-	Zed.showStatus("ClapTrap");
+	gwen.attack(zed.getName());
+	zed.takeDamage(gwen.getAttackDamage());
+	zed.showStatus("ClapTrap");
 
-	Zed.beRepaired(0);
-	Zed.showStatus("ClapTrap");
-	Zed.attack(Gwen.getName());
+	zed.beRepaired(0);
+	zed.showStatus("ClapTrap");
+	zed.attack(gwen.getName());
 
-	Gwen.guardGate();
+	gwen.guardGate();
 }
