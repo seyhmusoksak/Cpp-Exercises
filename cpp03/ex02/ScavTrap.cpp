@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 04:57:39 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/15 06:29:16 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/16 10:31:26 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ ScavTrap::ScavTrap(const std::string& n): ClapTrap(n)
 	this->guardMode = false;
 }
 
-ScavTrap::ScavTrap(ScavTrap& t)
+ScavTrap::ScavTrap(ScavTrap& t) : ClapTrap(t)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
-	*this = t;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap &other)
