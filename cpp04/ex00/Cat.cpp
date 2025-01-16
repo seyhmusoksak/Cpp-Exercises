@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:31:29 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/16 07:19:47 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/16 08:15:56 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Cat::Cat(const Cat &copy)
 Cat &Cat::operator=(const Cat &copy)
 {
 	std::cout << "Cat copy assignment operator called" << std::endl;
-	this->type = copy.type;
+	if (this != &copy)
+		this->type = copy.type;
 	return (*this);
 }
 
