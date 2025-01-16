@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:31:29 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/16 08:15:56 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 00:23:44 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ Cat::Cat()
 	this->type = "Cat";
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = copy;
 }
 
 Cat &Cat::operator=(const Cat &copy)
