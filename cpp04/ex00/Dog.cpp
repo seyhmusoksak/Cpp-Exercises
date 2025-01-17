@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:04:08 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 00:23:37 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:16:54 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,4 @@ void Dog::makeSound() const
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
-}
-
-std::string Dog::getType() const
-{
-	return (this->type);
 }

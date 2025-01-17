@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:31:09 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/16 07:00:51 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:16:38 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Cat : public Animal
 		Cat(const Cat &copy);
 		Cat &operator=(const Cat &copy);
 		~Cat();
-		std::string getType() const;
 		void makeSound() const;
 };
 

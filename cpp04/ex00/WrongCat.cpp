@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 07:09:46 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 00:23:28 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:23:43 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,4 @@ void WrongCat::makeSound() const
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat destructor called" << std::endl;
-}
-
-std::string WrongCat::getType() const
-{
-	return (this->type);
 }

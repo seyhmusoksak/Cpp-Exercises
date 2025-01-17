@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:31:29 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 00:23:44 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:16:32 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,4 @@ void Cat::makeSound() const
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
-}
-
-std::string Cat::getType() const
-{
-	return (this->type);
 }
