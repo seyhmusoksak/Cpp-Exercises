@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:13:47 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/16 07:22:13 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 09:27:26 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 	const Animal* i = new Cat();
 	const WrongAnimal* k = new WrongCat();
 
-	std::cout << "------Animal Abstraction------" << std::endl;
+	std::cout << "----------Animal--------" << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 
