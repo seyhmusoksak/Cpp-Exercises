@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:13:47 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 09:16:40 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 09:23:15 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main()
 	for (int i = 0; i < 100; i++)
 		c.setIdea(i, "Meow");
 
-	Cat d(c);
+	Cat d = c;
 
 	std::cout << "c's first idea: " << c.getIdea(0) << std::endl;
 	std::cout << "d's first idea: " << d.getIdea(0) << std::endl;
