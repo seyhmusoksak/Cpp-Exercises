@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:04:08 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 09:09:05 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:19:21 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
 	delete this->brain;
-}
-
-std::string Dog::getType() const
-{
-	return (this->type);
 }
 
 void Dog::setIdea(int index, std::string idea)

@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 05:42:20 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/16 07:00:57 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:17:37 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 		Animal(const Animal &copy);
 		Animal &operator=(const Animal &copy);
 		virtual ~Animal();
-		virtual std::string getType() const;
+		std::string getType() const;
 		virtual void makeSound() const;
 };
 

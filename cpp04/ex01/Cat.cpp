@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:31:29 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 03:02:08 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 10:18:38 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
 	delete this->brain;
-}
-
-std::string Cat::getType() const
-{
-	return (this->type);
 }
 
 void Cat::setIdea(int index, std::string idea)
