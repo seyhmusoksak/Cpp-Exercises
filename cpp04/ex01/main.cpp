@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 06:13:47 by soksak            #+#    #+#             */
-/*   Updated: 2025/01/17 03:09:47 by soksak           ###   ########.fr       */
+/*   Updated: 2025/01/17 09:16:40 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 int main()
 {
-
 	std::cout <<"----------PDF Example Main---------" << std::endl;
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	delete j;//should not create a leak
+	delete j;
 	delete i;
 
 
@@ -36,11 +35,11 @@ int main()
 
 	for (int i = 0; i < 10; i++)
 	{
-		animals[i]->getType();
+		std::cout << animals[i]->getType() << " says: ";
 		animals[i]->makeSound();
-		delete animals[i];
 	}
-
+	for (int i = 0; i < 10; i++)
+		delete animals[i];
 	delete [] animals;
 
 
