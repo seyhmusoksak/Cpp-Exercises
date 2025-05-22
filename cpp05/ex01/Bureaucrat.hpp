@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 04:50:07 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/21 17:03:54 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/21 19:05:06 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +31,7 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat const &copy);
 		Bureaucrat const	&operator=(Bureaucrat const &copy);
 		~Bureaucrat();
+		void signForm(Form &form);
 		std::string getName() const;
 		int getGrade() const;
 		void incrementGrade();
