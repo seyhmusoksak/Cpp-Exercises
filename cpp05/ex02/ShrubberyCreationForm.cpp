@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 02:51:12 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/23 03:14:03 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/23 04:20:33 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 
 const char* ShrubberyCreationForm::FileOpenException::what() const throw()
 {
-	return ("Error: File could not be opened.");
+	return ("Error: File could not be opened");
 }

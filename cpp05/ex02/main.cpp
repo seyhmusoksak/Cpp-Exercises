@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 06:07:44 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/23 04:13:08 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/23 04:17:25 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ int main()
 		// Grade Already Signed
 		std::cout << John;
 		John.signForm(Robotomy);
+
 		// Grade is too low
 		John.executeForm(Robotomy);
+
 		std::cout << "<-- Some Tests Again -->" << std::endl;
 
 		// Already Signed
@@ -62,6 +64,9 @@ int main()
 		// Execution Success
 		Jack.executeForm(Presidential);
 		John.executeForm(Shrubbery);
+
+		// Execution %50 chance.
+		Jack.executeForm(Robotomy);
 
 		std::cout << "<-- Destructors -->" << std::endl;
 

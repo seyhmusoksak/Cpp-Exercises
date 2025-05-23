@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 00:23:05 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/23 03:15:29 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/23 04:19:09 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 
 const char* RobotomyRequestForm::RobotomyFailedException::what() const throw()
 {
-	return ("Robotomy failed for the target.");
+	return ("Robotomy failed");
 }
 
