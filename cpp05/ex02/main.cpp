@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 06:07:44 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/23 04:17:25 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/23 05:20:30 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main()
 		Bob.signForm(Shrubbery);
 		Bob.executeForm(Shrubbery);
 		std::cout << Shrubbery;
+		// Robotomy may throw exception --%50 Chance--
 		Bob.signForm(Robotomy);
 		Bob.executeForm(Robotomy);
 		std::cout << Robotomy;
