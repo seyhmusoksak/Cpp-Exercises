@@ -6,11 +6,13 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 00:22:19 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/23 03:14:41 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/24 16:41:18 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 class RobotomyRequestForm : public AForm
 {

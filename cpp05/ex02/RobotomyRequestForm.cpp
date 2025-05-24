@@ -6,13 +6,11 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 00:23:05 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/23 04:19:09 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/24 16:40:27 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-#include <cstdlib>
-#include <ctime>
 
 
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45), target("Default")
