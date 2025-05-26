@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:51:21 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/26 03:13:29 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/26 14:15:44 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ enum LiteralType {
 	INT,
 	FLOAT,
 	DOUBLE,
-	INVALID
+	IMPOSSIBLE
 };
 
 

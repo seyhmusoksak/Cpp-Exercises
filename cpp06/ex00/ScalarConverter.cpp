@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 02:50:33 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/26 03:13:25 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/26 14:16:33 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ static LiteralType getLiteralType(const std::string &literal)
 	if (isFloatLiteral(literal))  return FLOAT;
 	if (isDoubleLiteral(literal)) return DOUBLE;
 
-	return INVALID;
+	return IMPOSSIBLE;
 }
 
 
@@ -178,10 +178,8 @@ void ScalarConverter::convert(const std::string &literal)
 			case DOUBLE:
 				value = std::atof(literal.c_str());
 				break;
-
-			default:
-				std::cout << "Invalid input" << std::endl;
-				return;
+			case IMPOSSIBLE:
+				throw std::runtime_error("cannot convert");
 		}
 
 		printChar(value);
