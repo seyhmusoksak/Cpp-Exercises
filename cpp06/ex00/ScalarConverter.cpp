@@ -6,13 +6,11 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 02:50:33 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/27 09:44:02 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/27 10:06:06 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-
 
 static bool isCharLiteral(const std::string &literal)
 {
@@ -132,8 +130,6 @@ static void printDouble(double val)
 	}
 }
 
-
-
 static LiteralType getLiteralType(const std::string &literal)
 {
 	if (literal.length() == 1 &&
@@ -141,60 +137,52 @@ static LiteralType getLiteralType(const std::string &literal)
 		!std::isdigit(literal[0]))
 		return CHAR;
 
-	if (isCharLiteral(literal))   return CHAR;
-	if (isIntLiteral(literal))    return INT;
-	if (isFloatLiteral(literal))  return FLOAT;
-	if (isDoubleLiteral(literal)) return DOUBLE;
+	if (isCharLiteral(literal))
+		return CHAR;
+	if (isIntLiteral(literal))
+		return INT;
+	if (isFloatLiteral(literal))
+		return FLOAT;
+	if (isDoubleLiteral(literal))
+		return DOUBLE;
 
 	return IMPOSSIBLE;
 }
-
 
 void ScalarConverter::convert(const std::string &literal)
 {
 	double value;
 	LiteralType type;
 
-	try
+	type = getLiteralType(literal);
+
+	switch (type)
 	{
-		type = getLiteralType(literal);
+		case CHAR:
+			value = (literal.length() == 1) ? static_cast<double>(literal[0]) : static_cast<double>(literal[1]);
+			break;
 
-		switch (type)
-		{
-			case CHAR:
-				value = (literal.length() == 1) ?
-					static_cast<double>(literal[0]) :
-					static_cast<double>(literal[1]);
-				break;
+		case INT:
+			value = static_cast<double>(std::atoi(literal.c_str()));
+			break;
 
-			case INT:
-				value = static_cast<double>(std::atoi(literal.c_str()));
-				break;
+		case FLOAT:
+			value = static_cast<double>(std::atof(literal.c_str()));
+			break;
 
-			case FLOAT:
-				value = static_cast<double>(std::atof(literal.c_str()));
-				break;
-
-			case DOUBLE:
-				value = std::atof(literal.c_str());
-				break;
-			case IMPOSSIBLE:
-				throw ScalarConverter::ImpossibleConversion();
-		}
-
-		printChar(value);
-		printInt(value);
-		printFloat(value);
-		printDouble(value);
+		case DOUBLE:
+			value = std::atof(literal.c_str());
+			break;
+		case IMPOSSIBLE:
+			throw ScalarConverter::ImpossibleConversion();
 	}
-	catch (std::exception &e)
-
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
+	printChar(value);
+	printInt(value);
+	printFloat(value);
+	printDouble(value);
 }
 
-const char* ScalarConverter::ImpossibleConversion::what() const throw()
+const char *ScalarConverter::ImpossibleConversion::what() const throw()
 {
 	return "Conversion is impossible for all types(char, int, float, double).";
 }
