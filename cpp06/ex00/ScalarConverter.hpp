@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:51:21 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/26 14:15:44 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/27 09:41:01 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ class ScalarConverter
 
 	public:
 		static void convert(const std::string &input);
+		class ImpossibleConversion : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif

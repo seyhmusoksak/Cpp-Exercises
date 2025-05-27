@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 02:50:33 by soksak            #+#    #+#             */
-/*   Updated: 2025/05/26 14:16:33 by soksak           ###   ########.fr       */
+/*   Updated: 2025/05/27 09:44:02 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ void ScalarConverter::convert(const std::string &literal)
 				value = std::atof(literal.c_str());
 				break;
 			case IMPOSSIBLE:
-				throw std::runtime_error("cannot convert");
+				throw ScalarConverter::ImpossibleConversion();
 		}
 
 		printChar(value);
@@ -187,13 +187,16 @@ void ScalarConverter::convert(const std::string &literal)
 		printFloat(value);
 		printDouble(value);
 	}
-	catch (...)
+	catch (std::exception &e)
+
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
+}
+
+const char* ScalarConverter::ImpossibleConversion::what() const throw()
+{
+	return "Conversion is impossible for all types(char, int, float, double).";
 }
 
 ScalarConverter::ScalarConverter() {}
