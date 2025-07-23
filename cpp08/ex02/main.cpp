@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 20:40:01 by soksak            #+#    #+#             */
-/*   Updated: 2025/07/23 21:11:57 by soksak           ###   ########.fr       */
+/*   Updated: 2025/07/24 01:05:59 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main()
 {
+	std::cout << "<------Subject Main------->" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -34,6 +35,32 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
+
+	std::cout << "<-- String Stack Test -->" << std::endl;
+	MutantStack<std::string> mstackStr;
+	mstackStr.push("Hello");
+	mstackStr.push("World");
+
+	std::cout << "Size of mstackStr: " << mstackStr.size() << std::endl;
+	std::cout << "Elements in mstackStr:" << std::endl;
+	MutantStack<std::string>::iterator rit = mstackStr.begin();
+	MutantStack<std::string>::iterator rite = mstackStr.end();
+	while (rit != rite)
+	{
+		std::cout << *rit << std::endl;
+		++rit;
+	}
+
+	std::cout << "<-- Normal Stack Test -->" << std::endl;
+	std::stack<std::string> stackStr;
+	stackStr.push("Hello");
+	stackStr.push("World");
+	std::cout << "Size of stackStr: " << stackStr.size() << std::endl;
+	std::cout << "Elements in stackStr:" << std::endl;
+	while (!stackStr.empty())
+	{
+		std::cout << stackStr.top() << std::endl;
+		stackStr.pop();
+	}
 	return 0;
 }
