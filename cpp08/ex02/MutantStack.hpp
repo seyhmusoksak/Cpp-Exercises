@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 20:08:43 by soksak            #+#    #+#             */
-/*   Updated: 2025/07/23 22:54:06 by soksak           ###   ########.fr       */
+/*   Updated: 2025/07/25 01:57:58 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,17 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-		MutantStack() : std::stack<T>() {}
-		MutantStack(const MutantStack &other) : std::stack<T>(other) {}
-		MutantStack& operator=(const MutantStack &other) {
-			if (this != &other) {
-				std::stack<T>::operator=(other);
-			}
-			return *this;
-		}
-		~MutantStack() {}
+		MutantStack();
+		MutantStack(const MutantStack &other);
+		MutantStack& operator=(const MutantStack &other);
+		~MutantStack();
+
 		typedef typename std::deque<T>::iterator iterator;
-		typedef typename std::deque<T>::const_iterator const_iterator;
-		typedef typename std::deque<T>::reverse_iterator reverse_iterator;
-		typedef typename std::deque<T>::const_reverse_iterator const_reverse_iterator;
-		iterator begin() {
-			return this->c.begin();
-		}
-		const_iterator begin() const {
-			return this->c.begin();
-		}
-		iterator end() {
-			return this->c.end();
-		}
+		iterator begin();
+		iterator end();
 };
+
+#include "MutantStack.tpp"
+
 
 #endif

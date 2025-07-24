@@ -1,4 +1,4 @@
-NAME = mutantstack
+NAME = MutantStack
 SRCS = main.cpp
 COMPILER = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic
