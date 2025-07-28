@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 22:01:30 by soksak            #+#    #+#             */
-/*   Updated: 2025/07/28 22:22:15 by soksak           ###   ########.fr       */
+/*   Updated: 2025/07/28 22:44:24 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void RPN::evaluate(const std::string &expression)
 
 	while (iss >> token)
 	{
-		if (isdigit(token[0]))
+		if (std::isdigit(token[0]))
 		{
 			_stack.push(static_cast<int>(std::atoi(token.c_str())));
 		}
@@ -87,7 +87,7 @@ void RPN::evaluate(const std::string &expression)
 		throw InvalidExpressionException();
 	}
 
-	std::cout << "Result: " << _stack.top() << std::endl;
+	std::cout << _stack.top() << std::endl;
 }
 
 const char *RPN::InvalidExpressionException::what() const throw()
