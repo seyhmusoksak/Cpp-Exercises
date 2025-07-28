@@ -1,8 +1,10 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <string>
 #include <map>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 class BitcoinExchange {
 private:
@@ -13,8 +15,8 @@ private:
 	std::string trim(const std::string &str);
 
 public:
-	BitcoinExchange();                             
-	BitcoinExchange(const BitcoinExchange &other); 
+	BitcoinExchange();
+	BitcoinExchange(const BitcoinExchange &other);
 	BitcoinExchange &operator=(const BitcoinExchange &other);
 	~BitcoinExchange();
 

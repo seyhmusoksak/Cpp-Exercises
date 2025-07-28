@@ -1,8 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <cstdlib>
 
 
 BitcoinExchange::BitcoinExchange() {}
@@ -23,11 +19,14 @@ BitcoinExchange::~BitcoinExchange() {}
 
 bool BitcoinExchange::loadDatabase(const std::string &filename) {
 	std::ifstream file(filename.c_str());
-	if (!file.is_open()) return false;
+	if (!file.is_open())
+		return false;
 
 	std::string line;
 
 	while (std::getline(file, line)) {
+		if (line == "date,exchange_rate")
+			continue;
 		std::istringstream ss(line);
 		std::string date, rateStr;
 		if (std::getline(ss, date, ',') && std::getline(ss, rateStr)) {
@@ -46,9 +45,10 @@ void BitcoinExchange::processInput(const std::string &filename) {
 	}
 
 	std::string line;
-	std::getline(file, line); // Skip the header line
 
 	while (std::getline(file, line)) {
+		if (line == "date | value")
+			continue;
 		size_t pipe = line.find('|');
 		if (pipe == std::string::npos) {
 			std::cerr << "Error: bad input => " << line << std::endl;
